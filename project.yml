@@ -1,0 +1,57 @@
+name: Pluck
+options:
+  bundleIdPrefix: com.pluck
+  deploymentTarget:
+    macOS: "13.0"
+
+packages:
+  KeyboardShortcuts:
+    url: https://github.com/sindresorhus/KeyboardShortcuts
+    from: 2.0.0
+  LaunchAtLogin:
+    url: https://github.com/sindresorhus/LaunchAtLogin-Modern
+    from: 1.0.0
+
+targets:
+  Pluck:
+    type: application
+    platform: macOS
+    deploymentTarget: "13.0"
+    sources:
+      - path: Pluck
+    dependencies:
+      - package: KeyboardShortcuts
+      - package: LaunchAtLogin
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.pluck.mac
+      PRODUCT_NAME: Pluck
+      INFOPLIST_FILE: Pluck/Info.plist
+      GENERATE_INFOPLIST_FILE: NO
+      CODE_SIGN_ENTITLEMENTS: Pluck/Pluck.entitlements
+      ENABLE_HARDENED_RUNTIME: YES
+      MACOSX_DEPLOYMENT_TARGET: "13.0"
+      SWIFT_VERSION: "5.0"
+      CODE_SIGN_STYLE: Manual
+      CODE_SIGN_IDENTITY: "-"
+      ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+      COMBINE_HIDPI_IMAGES: YES
+      LD_RUNPATH_SEARCH_PATHS:
+        - $(inherited)
+        - "@executable_path/../Frameworks"
+
+  PluckTests:
+    type: bundle.unit-test
+    platform: macOS
+    deploymentTarget: "13.0"
+    sources:
+      - path: PluckTests
+    dependencies:
+      - target: Pluck
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.pluck.mac.tests
+      PRODUCT_NAME: PluckTests
+      GENERATE_INFOPLIST_FILE: YES
+      MACOSX_DEPLOYMENT_TARGET: "13.0"
+      SWIFT_VERSION: "5.0"
+      CODE_SIGN_STYLE: Manual
+      CODE_SIGN_IDENTITY: "-"
