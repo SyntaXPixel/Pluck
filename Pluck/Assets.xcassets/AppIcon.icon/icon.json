@@ -2,6 +2,7 @@
   "fill" : "automatic",
   "groups" : [
     {
+      "blur-material" : null,
       "layers" : [
         {
           "blend-mode-specializations" : [
@@ -16,10 +17,7 @@
           "fill-specializations" : [
             {
               "value" : {
-                "linear-gradient" : [
-                  "extended-gray:0.00000,1.00000",
-                  "extended-gray:0.00000,1.00000"
-                ]
+                "automatic-gradient" : "extended-gray:0.00000,1.00000"
               }
             },
             {
@@ -57,12 +55,14 @@
           }
         }
       ],
+      "lighting" : "individual",
       "shadow" : {
         "kind" : "neutral",
         "opacity" : 0.5
       },
+      "specular" : false,
       "translucency" : {
-        "enabled" : true,
+        "enabled" : false,
         "value" : 0.5
       }
     }
