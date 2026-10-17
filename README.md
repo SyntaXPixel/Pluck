@@ -7,10 +7,11 @@
     <a href="https://github.com/SyntaXPixel/Pluck/releases/latest"><img src="https://img.shields.io/github/v/release/SyntaXPixel/Pluck?style=flat-square&color=black" alt="Release" /></a>
     <a href="https://github.com/SyntaXPixel/Pluck/releases/latest"><img src="https://img.shields.io/badge/macOS-13.0%2B-black?style=flat-square&logo=apple" alt="macOS 13+" /></a>
     <a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-5.0-F05138?style=flat-square&logo=swift&logoColor=white" alt="Swift 5.0" /></a>
-    <a href="https://github.com/SyntaXPixel/Pluck/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-black.svg?style=flat-square" alt="License: MIT" /></a>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT--NC-black.svg?style=flat-square" alt="License: MIT-NC" /></a>
   </p>
 
   <p>
+    <a href="https://github.com/SyntaXPixel/Pluck/releases">Releases</a> &bull;
     <a href="https://github.com/SyntaXPixel/Pluck/releases/latest/download/Pluck.dmg">Download Pluck.dmg</a> &bull;
     <a href="#features">Features</a> &bull;
     <a href="#installation">Installation</a> &bull;
@@ -37,7 +38,7 @@ Feedback is strictly acoustic through macOS system sounds—no notification bann
 
 ## Installation
 
-1. Download **[Pluck.dmg](https://github.com/SyntaXPixel/Pluck/releases/latest/download/Pluck.dmg)** from the latest release.
+1. Download **[Pluck.dmg](https://github.com/SyntaXPixel/Pluck/releases/latest/download/Pluck.dmg)** from the [Releases](https://github.com/SyntaXPixel/Pluck/releases) page.
 2. Open the disk image and drag **Pluck.app** to your `/Applications` folder.
 3. Launch Pluck and grant **Screen Recording** permission when prompted by the setup wizard.
 
@@ -83,5 +84,6 @@ xcodegen generate
 
 ## License
 
-Released under the [MIT License](https://github.com/SyntaXPixel/Pluck/blob/main/LICENSE). See the full license text at:
-https://github.com/SyntaXPixel/Pluck/blob/main/LICENSE
+This project is licensed under the [MIT Non-Commercial License (MIT-NC)](LICENSE).
+
+It is free and open-source for personal and community use. Commercial use, monetization, or selling this software or its derivative works is strictly prohibited. All modifications and workflows must remain open source under the same terms.
