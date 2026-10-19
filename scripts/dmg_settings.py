@@ -4,15 +4,14 @@ import os.path
 _project_dir = defines.get('project_dir', os.getcwd())
 _app_path = defines.get('app_path', os.path.join(_project_dir, 'build', 'Release', 'Pluck.app'))
 _bg_path = defines.get('background_path', os.path.join(_project_dir, 'build', 'dmg-assets', 'dmg_background.png'))
-_transparent_icon = os.path.join(_project_dir, 'assest', 'transparent.icns')
+_volume_icon = os.path.join(_project_dir, 'assest', 'Pluck.icns')
 
 format = 'UDZO'
-# Single space removes window bar title text while keeping window chrome clean
-volume_name = ' '
+volume_name = 'Pluck'
 
-# Transparent icon hides proxy icon in title bar
-if os.path.exists(_transparent_icon):
-    icon = _transparent_icon
+# Volume icon shows on Desktop and in Finder sidebar
+if os.path.exists(_volume_icon):
+    icon = _volume_icon
 
 files = [_app_path]
 

@@ -13,7 +13,7 @@
 
   <p>
     <a href="https://github.com/SyntaXPixel/Pluck/releases">Releases</a> &bull;
-    <a href="https://github.com/SyntaXPixel/Pluck/releases/latest/download/Pluck.dmg">Download Pluck.dmg</a> &bull;
+    <a href="https://github.com/SyntaXPixel/Pluck/releases/latest/download/Pluck.dmg">Download DMG</a> &bull;
     <a href="#features">Features</a> &bull;
     <a href="#installation">Installation</a> &bull;
     <a href="#building-from-source">Build</a>
@@ -39,7 +39,7 @@ Feedback is strictly acoustic through macOS system sounds—no notification bann
 
 ## Installation
 
-1. Download **[Pluck.dmg](https://github.com/SyntaXPixel/Pluck/releases/latest/download/Pluck.dmg)** from the [Releases](https://github.com/SyntaXPixel/Pluck/releases) page.
+1. Download **[Pluck.dmg](https://github.com/SyntaXPixel/Pluck/releases/latest/download/Pluck.dmg)** (or click **Download DMG**) from the [Releases](https://github.com/SyntaXPixel/Pluck/releases) page.
 2. Open the disk image and drag **Pluck.app** to your `/Applications` folder.
 3. Launch Pluck and grant **Screen Recording** permission when prompted by the setup wizard.
 
@@ -51,7 +51,7 @@ Because Pluck is a self-funded open-source project without a paid Apple Develope
 
 Pluck is 100% offline, contains zero tracking or network code, and is verified clean:
 
-- **SHA-256**: `c2aa3780252fffcba42df90ef24e3785c572f51170c08842174c0708d90d61b3`
+- **SHA-256**: `e3de102479cd8ea42172c5622fcb62b38f25855a756525fc456de074ee49f6df`
 - **VirusTotal Report**: [0/61 Detections on VirusTotal](https://www.virustotal.com/gui/file/94e85fb07a33b68ebb2db614671e386337fd8216714b5f92e5249f189cd73fa4)
 
 <p align="center">

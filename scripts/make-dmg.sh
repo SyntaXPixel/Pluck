@@ -34,7 +34,7 @@ python3 -m dmgbuild \
     -Dproject_dir="$PROJECT_DIR" \
     -Dapp_path="$APP_PATH" \
     -Dbackground_path="$DMG_ASSETS_DIR/dmg_background.png" \
-    " " \
+    "Pluck" \
     "$DMG_PATH"
 
 echo "==> DMG successfully created at: $DMG_PATH"
