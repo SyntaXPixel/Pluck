@@ -8,6 +8,7 @@
     <a href="https://github.com/SyntaXPixel/Pluck/releases/latest"><img src="https://img.shields.io/badge/macOS-13.0%2B-black?style=flat-square&logo=apple" alt="macOS 13+" /></a>
     <a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-5.0-F05138?style=flat-square&logo=swift&logoColor=white" alt="Swift 5.0" /></a>
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT--NC-black.svg?style=flat-square" alt="License: MIT-NC" /></a>
+    <a href="https://buymeacoffee.com/syntaxpixel"><img src="https://img.shields.io/badge/Support-Buy%20Me%20a%20Coffee-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee" /></a>
   </p>
 
   <p>
@@ -44,6 +45,30 @@ Feedback is strictly acoustic through macOS system sounds—no notification bann
 
 > **Requirements:** macOS 13.0 (Ventura) or later. Universal binary for Apple Silicon and Intel.
 
+### Security & Gatekeeper Notice
+
+Because Pluck is a self-funded open-source project without a paid Apple Developer certificate, macOS Gatekeeper may show a warning on first launch (*"Apple could not verify Pluck.app is free of malware"*).
+
+Pluck is 100% offline, contains zero tracking or network code, and is verified clean:
+
+- **SHA-256**: `94e85fb07a33b68ebb2db614671e386337fd8216714b5f92e5249f189cd73fa4`
+- **VirusTotal Report**: [0/61 Detections on VirusTotal](https://www.virustotal.com/gui/file/94e85fb07a33b68ebb2db614671e386337fd8216714b5f92e5249f189cd73fa4)
+
+<p align="center">
+  <a href="https://www.virustotal.com/gui/file/94e85fb07a33b68ebb2db614671e386337fd8216714b5f92e5249f189cd73fa4">
+    <img src="assest/virustotal-scan.png" width="620" alt="VirusTotal Clean Scan Report" />
+  </a>
+</p>
+
+#### Opening Pluck on First Launch
+
+- **Option A (System Settings)**: Open **System Settings &rarr; Privacy & Security**, scroll down to the **Security** section, and click **Open Anyway**.
+- **Option B (Finder)**: In `/Applications`, right-click (or Control-click) **Pluck.app** and select **Open**.
+- **Option C (Terminal)**: Run:
+  ```bash
+  xattr -cr /Applications/Pluck.app
+  ```
+
 ## Usage
 
 - **Capture Text**: Press `Control + Command + P` / `⌃⌘P` (or your configured shortcut), then drag to select a screen area.
@@ -75,6 +100,12 @@ xcodegen generate
 # Create distributable DMG
 ./scripts/make-dmg.sh
 ```
+
+## Support
+
+If Pluck saves you time and clicks, you can support its development:
+
+- **[Buy Me a Coffee](https://buymeacoffee.com/syntaxpixel)**
 
 ## Credits
 
