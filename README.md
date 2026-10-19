@@ -51,7 +51,7 @@ Because Pluck is a self-funded open-source project without a paid Apple Develope
 
 Pluck is 100% offline, contains zero tracking or network code, and is verified clean:
 
-- **SHA-256**: `94e85fb07a33b68ebb2db614671e386337fd8216714b5f92e5249f189cd73fa4`
+- **SHA-256**: `c2aa3780252fffcba42df90ef24e3785c572f51170c08842174c0708d90d61b3`
 - **VirusTotal Report**: [0/61 Detections on VirusTotal](https://www.virustotal.com/gui/file/94e85fb07a33b68ebb2db614671e386337fd8216714b5f92e5249f189cd73fa4)
 
 <p align="center">

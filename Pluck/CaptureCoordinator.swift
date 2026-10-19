@@ -60,7 +60,7 @@ final class CaptureCoordinator {
                     languageCode: languageCode
                 )
             } catch {
-                self.logger.error("Vision OCR failed with error: \(error.localizedDescription)")
+                self.logger.error("Vision OCR failed with error: \(error.localizedDescription, privacy: .public)")
                 NotificationCenter.default.post(
                     name: .pluckDidFailCapture,
                     object: nil,

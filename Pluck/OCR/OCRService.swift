@@ -52,6 +52,7 @@ final class VisionOCRService: @unchecked Sendable, OCRServiceProtocol {
 
             let request = VNRecognizeTextRequest()
             request.recognitionLevel = .accurate
+            request.revision = 2
             request.usesLanguageCorrection = false
             request.recognitionLanguages = ["en-US"]
 
@@ -67,40 +68,51 @@ final class VisionOCRService: @unchecked Sendable, OCRServiceProtocol {
         level: VNRequestTextRecognitionLevel = .accurate,
         languageCode: String? = nil
     ) async throws -> String {
-        let effectiveLevel: VNRequestTextRecognitionLevel
-        if !isWarmedUp && level == .accurate {
-            // Cold-start fast path: avoid multi-second neural model compilation stall
-            effectiveLevel = .fast
-        } else {
-            effectiveLevel = level
-        }
-
         return try await Task.detached(priority: .userInitiated) {
-            let request = VNRecognizeTextRequest()
-            request.recognitionLevel = effectiveLevel
-            request.usesLanguageCorrection = true
+            func executeRecognition(req: VNRecognizeTextRequest) throws -> String {
+                let handler = VNImageRequestHandler(cgImage: image, options: [:])
+                try handler.perform([req])
 
-            // Fast language resolution: avoid automaticallyDetectsLanguage which takes ~27 seconds!
+                guard let observations = req.results, !observations.isEmpty else {
+                    return ""
+                }
+
+                let sortedObservations = Self.sortObservations(observations)
+                let lines = sortedObservations.compactMap { observation -> String? in
+                    observation.topCandidates(1).first?.string
+                }
+
+                return lines.joined(separator: "\n")
+            }
+
+            // 1. Primary request configuration
+            let primaryRequest = VNRecognizeTextRequest()
+            primaryRequest.recognitionLevel = level
+            primaryRequest.usesLanguageCorrection = true
+
+            // Use revision 2 for accurate mode on Apple Silicon / macOS to prevent e5rt ANE driver compilation crashes
+            if level == .accurate {
+                primaryRequest.revision = 2
+            }
+
             if let languageCode = languageCode, !languageCode.isEmpty, languageCode != "auto" {
-                request.recognitionLanguages = [languageCode]
+                primaryRequest.recognitionLanguages = [languageCode]
             } else {
-                let preferred = Self.resolvePreferredLanguages(for: request)
-                request.recognitionLanguages = preferred
+                primaryRequest.recognitionLanguages = Self.resolvePreferredLanguages(for: primaryRequest)
             }
 
-            let handler = VNImageRequestHandler(cgImage: image, options: [:])
-            try handler.perform([request])
-
-            guard let observations = request.results as? [VNRecognizedTextObservation], !observations.isEmpty else {
-                return ""
+            do {
+                return try executeRecognition(req: primaryRequest)
+            } catch {
+                // 2. Resilient fallback: If Neural Engine (e5rt) or primary fails, fall back to fast mode
+                let fallbackRequest = VNRecognizeTextRequest()
+                fallbackRequest.recognitionLevel = .fast
+                fallbackRequest.usesLanguageCorrection = true
+                if let languageCode = languageCode, !languageCode.isEmpty, languageCode != "auto" {
+                    fallbackRequest.recognitionLanguages = [languageCode]
+                }
+                return try executeRecognition(req: fallbackRequest)
             }
-
-            let sortedObservations = Self.sortObservations(observations)
-            let lines = sortedObservations.compactMap { observation -> String? in
-                observation.topCandidates(1).first?.string
-            }
-
-            return lines.joined(separator: "\n")
         }.value
     }
 
