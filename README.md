@@ -33,7 +33,7 @@ Feedback is strictly acoustic through macOS system sounds—no notification bann
 - **Sound-Only Feedback**: Auditory confirmation on success and error states. No notifications or modal dialogs.
 - **Apple Vision OCR**: Powered by `VNRecognizeTextRequest` on the Apple Neural Engine. Supports Fast and Accurate modes, automatic language detection, reading-order geometry sorting, and whitespace cleanup.
 - **Maccy Integration**: Integrates directly with Maccy. When "Save to History" is disabled, Pluck marks pasteboard items as transient so clipboard managers ignore them while standard paste continues to work.
-- **Customizable Shortcut**: Trigger screen selection from any workspace using the default shortcut (`Command + Shift + T`) or a custom key combination.
+- **Customizable Shortcut**: Trigger screen selection from any workspace using the default shortcut (`Control + Command + P` / `⌃⌘P`) or a custom key combination.
 - **Privacy First**: Fully offline with no network permissions, no telemetry, and no background database.
 
 ## Installation
@@ -46,7 +46,7 @@ Feedback is strictly acoustic through macOS system sounds—no notification bann
 
 ## Usage
 
-- **Capture Text**: Press `Command + Shift + T` (or your configured shortcut), then drag to select a screen area.
+- **Capture Text**: Press `Control + Command + P` / `⌃⌘P` (or your configured shortcut), then drag to select a screen area.
 - **Success**: A confirmation sound plays, and the extracted text is copied to your clipboard.
 - **Cancel**: Press `Escape` during selection to cancel silently.
 - **Preferences**: Click the menu bar icon and select **Preferences...** (`Command + ,`) to configure shortcuts, recognition accuracy, sound effects, and startup behavior.

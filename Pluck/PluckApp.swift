@@ -20,7 +20,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             CaptureCoordinator.shared.startCapture()
         }
 
-        // Setup global hotkey (default ⌘⇧P)
+        // Setup global hotkey (default ⌃⌘P / Control+Command+P)
         HotkeyManager.shared.setup {
             CaptureCoordinator.shared.startCapture()
         }
